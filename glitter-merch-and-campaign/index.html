@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glitter Brandbook Viewer</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .viewer {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    .image-container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 5;
+      transition: background 0.2s ease;
+    }
+
+    .left-zone, .right-zone {
+      pointer-events: auto;
+    }
+
+    .left-zone:hover {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+    }
+
+    .right-zone:hover {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
+    }
+
+    .left-zone {
+      left: 0;
+      cursor: pointer;
+    }
+
+    .right-zone {
+      right: 0;
+      cursor: pointer;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .left-zone .arrow {
+      left: 10px;
+    }
+
+    .right-zone .arrow {
+      right: 10px;
+    }
+
+    .arrow.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="viewer">
+    <div class="image-container">
+      <img id="image" src="https://raw.githubusercontent.com/mhornstein/glitter-brandbook/main/pics/0.png" alt="Slide" />
+    </div>
+
+    <div class="nav-zone left-zone" onclick="nextImage()">
+      <div class="arrow" id="leftArrow">◀</div>
+    </div>
+
+    <div class="nav-zone right-zone" onclick="prevImage()">
+      <div class="arrow" id="rightArrow">▶</div>
+    </div>
+  </div>
+
+  <script>
+    const imageElement = document.getElementById('image');
+    const totalImages = 10;
+    let currentIndex = 0;
+
+    const leftZone = document.querySelector('.left-zone');
+    const rightZone = document.querySelector('.right-zone');
+    const leftArrow = document.getElementById('leftArrow');
+    const rightArrow = document.getElementById('rightArrow');
+
+    function updateImage() {
+      imageElement.src = `https://raw.githubusercontent.com/mhornstein/glitter-brandbook/main/pics/${currentIndex}.png`;
+
+      // Disable right zone (back) if at first image
+      if (currentIndex === 0) {
+        rightZone.style.pointerEvents = 'none';
+        rightArrow.classList.remove('visible');
+      } else {
+        rightZone.style.pointerEvents = 'auto';
+        rightArrow.classList.add('visible');
+      }
+
+      // Disable left zone (forward) if at last image
+      if (currentIndex === totalImages - 1) {
+        leftZone.style.pointerEvents = 'none';
+        leftArrow.classList.remove('visible');
+      } else {
+        leftZone.style.pointerEvents = 'auto';
+        leftArrow.classList.add('visible');
+      }
+    }
+
+    function nextImage() {
+      if (currentIndex < totalImages - 1) {
+        currentIndex++;
+        updateImage();
+      }
+    }
+
+    function prevImage() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateImage();
+      }
+    }
+
+    // Initialize view
+    updateImage();
+  </script>
+</body>
+</html>
