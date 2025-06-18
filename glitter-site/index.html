@@ -28,19 +28,20 @@
     }
 
     .scroll-container::-webkit-scrollbar-track {
-      background: #e6f0ff;
+      background: #f3e9f9; /* a very light purple background for contrast */
       border-radius: 7px;
     }
-
+    
     .scroll-container::-webkit-scrollbar-thumb {
-      background-color: #4a90e2;
+      background-color: #662d91; /* main purple */
       border-radius: 7px;
-      border: 3px solid #e6f0ff;
+      border: 3px solid #f3e9f9; /* matches the track for a soft border effect */
+    }
+    
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+      background-color: #4b1c6f; /* a deeper shade for hover effect */
     }
 
-    .scroll-container::-webkit-scrollbar-thumb:hover {
-      background-color: #2d6cd3;
-    }
   </style>
 </head>
 <body>
