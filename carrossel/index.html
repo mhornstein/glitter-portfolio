@@ -15,6 +15,7 @@
   .slideshow-container {
     position: relative;
     height: auto;
+    min-height: 600px; /* Ensures consistent height for all slides */
   }
   .mySlides {
     opacity: 0;
@@ -41,6 +42,10 @@
     padding: 2vw;
     background-color: #fff;
     border-top: 1px solid #ddd;
+    min-height: 120px; /* Ensures consistent caption height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .caption h3 {
     font-size: 16px;
