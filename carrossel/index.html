@@ -1,0 +1,91 @@
+<style>
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  .carousel-item {
+    min-width: 300px;
+    max-width: 300px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .carousel-caption {
+    padding: 15px;
+  }
+  .carousel-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .carousel-subtitle {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .carousel-tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .carousel-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+<div class="carousel-container">
+  <a class="carousel-item" href="https://sites.google.com/view/maorhornstein/protfolio/attention-slide-deck?authuser=5">
+    <img src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/attention.png" alt="Attention, Please">
+    <div class="carousel-caption">
+      <div class="carousel-title">Attention, Please</div>
+      <div class="carousel-subtitle">How to Explain Neural Attention in Computational Biology Without Losing the Audience | 4 Key Strategies (with Gifs)</div>
+      <div class="carousel-tag">Slide Deck</div>
+    </div>
+  </a>
+
+  <a class="carousel-item" href="https://sites.google.com/view/maorhornstein/protfolio/glitter-design?authuser=5">
+    <img src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/glitter.png" alt="Be unique, be a glitter">
+    <div class="carousel-caption">
+      <div class="carousel-title">Be unique, be a glitter</div>
+      <div class="carousel-subtitle">How to make a cyber simulator feel like a real product</div>
+      <div class="carousel-tag">Design</div>
+    </div>
+  </a>
+
+  <a class="carousel-item" href="https://sites.google.com/view/maorhornstein/protfolio/coding-principles-video?authuser=5">
+    <img src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/shrafraf.png" alt="No Code, No Cry">
+    <div class="carousel-caption">
+      <div class="carousel-title">No Code, No Cry</div>
+      <div class="carousel-subtitle">How to teach coding principles without writing a single line of code</div>
+      <div class="carousel-tag">Video</div>
+    </div>
+  </a>
+
+  <a class="carousel-item" href="https://sites.google.com/view/maorhornstein/protfolio/ide-introduction-script?authuser=5">
+    <img src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/script.png" alt="From Design Chaos to Code Calm">
+    <div class="carousel-caption">
+      <div class="carousel-title">From Design Chaos to Code Calm</div>
+      <div class="carousel-subtitle">How to Better Introduce IDEs to Students — With a Tip from Design Instructors</div>
+      <div class="carousel-tag">Script</div>
+    </div>
+  </a>
+</div>
