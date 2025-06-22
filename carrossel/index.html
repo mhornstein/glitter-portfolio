@@ -1,4 +1,4 @@
-<!-- Custom Carousel (No Sliding, Subtle Dim Fixed) -->
+<!-- Responsive Carousel Showing 3 Slides at a Time with Logical Arrow Navigation -->
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
 <style>
@@ -7,29 +7,24 @@
     margin: 0;
     background: #fff;
   }
-  .slideshow-wrapper {
-    max-width: 800px;
-    margin: auto;
+  .carousel-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
     position: relative;
-    padding-bottom: 60px; /* space for dots */
+    padding-bottom: 40px;
   }
-  .slideshow-container {
-    position: relative;
+  .carousel-container {
+    overflow: hidden;
     width: 100%;
   }
-  .mySlides {
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    pointer-events: none;
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
   }
-  .mySlides.active {
-    opacity: 1;
-    position: relative;
-    pointer-events: auto;
+  .carousel-slide {
+    flex: 0 0 33.3333%;
+    box-sizing: border-box;
+    padding: 0 10px;
   }
   .slide-img-wrapper {
     position: relative;
@@ -50,7 +45,7 @@
   }
   .caption {
     text-align: center;
-    padding: 2vw 4vw;
+    padding: 1em;
     background-color: #fff;
     border-top: 1px solid #ddd;
   }
@@ -69,42 +64,20 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 16px;
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
     color: gray;
     background: transparent;
     border: none;
     z-index: 10;
+    padding: 0 10px;
   }
-  .prev {
-    left: 0;
-  }
-  .next {
-    right: 0;
-  }
-  .dot-container {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-  }
-  .dot {
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-    margin: 0 4px;
-    background-color: white;
-    border: 2px solid darkgray;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .dot.active {
-    background-color: darkgray;
-  }
+  .prev { left: 0; }
+  .next { right: 0; }
+
   @media (max-width: 768px) {
+    .carousel-slide {
+      flex: 0 0 100%;
+    }
     .caption h3 {
       font-size: 4vw;
     }
@@ -114,93 +87,76 @@
   }
 </style>
 
-<div class="slideshow-wrapper">
-  <div class="slideshow-container">
-    <div class="mySlides active">
-      <a href="https://sites.google.com/view/maorhornstein/protfolio/attention-slide-deck?authuser=5" target="_blank">
-        <div class="slide-img-wrapper">
-          <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/attention.png" alt="Attention, Please">
+<div class="carousel-wrapper">
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Slides repeated for logical wrap-around -->
+      <div class="carousel-slide">
+        <a href="https://sites.google.com/view/maorhornstein/protfolio/attention-slide-deck?authuser=5" target="_blank">
+          <div class="slide-img-wrapper">
+            <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/attention.png" alt="Attention, Please">
+          </div>
+        </a>
+        <div class="caption">
+          <h3>Attention, Please</h3>
+          <p>How to Explain Neural Attention in Computational Biology Without Losing the Audience | 4 Key Strategies (with Gifs)</p>
         </div>
-      </a>
-      <div class="caption">
-        <h3>Attention, Please</h3>
-        <p>How to Explain Neural Attention in Computational Biology Without Losing the Audience | 4 Key Strategies (with Gifs)</p>
+      </div>
+
+      <div class="carousel-slide">
+        <a href="https://sites.google.com/view/maorhornstein/protfolio/glitter-design?authuser=5" target="_blank">
+          <div class="slide-img-wrapper">
+            <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/glitter.png" alt="Be unique, be a glitter">
+          </div>
+        </a>
+        <div class="caption">
+          <h3>Be unique, be a glitter</h3>
+          <p>How to make a cyber simulator feel like a real product</p>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <a href="https://sites.google.com/view/maorhornstein/protfolio/coding-principles-video?authuser=5" target="_blank">
+          <div class="slide-img-wrapper">
+            <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/shrafraf.png" alt="No Code, No Cry">
+          </div>
+        </a>
+        <div class="caption">
+          <h3>No Code, No Cry</h3>
+          <p>How to teach coding principles without writing a single line of code</p>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <a href="https://sites.google.com/view/maorhornstein/protfolio/ide-introduction-script?authuser=5" target="_blank">
+          <div class="slide-img-wrapper">
+            <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/script.png" alt="From Design Chaos to Code Calm">
+          </div>
+        </a>
+        <div class="caption">
+          <h3>From Design Chaos to Code Calm</h3>
+          <p>How to Better Introduce IDEs to Students — With a Tip from Design Instructors</p>
+        </div>
       </div>
     </div>
-
-    <div class="mySlides">
-      <a href="https://sites.google.com/view/maorhornstein/protfolio/glitter-design?authuser=5" target="_blank">
-        <div class="slide-img-wrapper">
-          <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/glitter.png" alt="Be unique, be a glitter">
-        </div>
-      </a>
-      <div class="caption">
-        <h3>Be unique, be a glitter</h3>
-        <p>How to make a cyber simulator feel like a real product</p>
-      </div>
-    </div>
-
-    <div class="mySlides">
-      <a href="https://sites.google.com/view/maorhornstein/protfolio/coding-principles-video?authuser=5" target="_blank">
-        <div class="slide-img-wrapper">
-          <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/shrafraf.png" alt="No Code, No Cry">
-        </div>
-      </a>
-      <div class="caption">
-        <h3>No Code, No Cry</h3>
-        <p>How to teach coding principles without writing a single line of code</p>
-      </div>
-    </div>
-
-    <div class="mySlides">
-      <a href="https://sites.google.com/view/maorhornstein/protfolio/ide-introduction-script?authuser=5" target="_blank">
-        <div class="slide-img-wrapper">
-          <img class="slide-img" src="https://raw.githubusercontent.com/mhornstein/glitter-portfolio/main/carrossel/pics/script.png" alt="From Design Chaos to Code Calm">
-        </div>
-      </a>
-      <div class="caption">
-        <h3>From Design Chaos to Code Calm</h3>
-        <p>How to Better Introduce IDEs to Students — With a Tip from Design Instructors</p>
-      </div>
-    </div>
-
-    <button class="prev" onclick="plusSlides(-1)">❮</button>
-    <button class="next" onclick="plusSlides(1)">❯</button>
   </div>
-
-  <div class="dot-container">
-    <span class="dot active" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-  </div>
+  <button class="prev" onclick="moveSlides(-1)">❮</button>
+  <button class="next" onclick="moveSlides(1)">❯</button>
 </div>
 
 <script>
-let slideIndex = 1;
-showSlides(slideIndex);
+  let position = 0;
+  const track = document.getElementById("carouselTrack");
+  const slides = document.querySelectorAll(".carousel-slide");
+  const slidesPerView = 3;
+  const totalSlides = slides.length;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].classList.remove("active");
+  function moveSlides(direction) {
+    const maxPosition = totalSlides - slidesPerView;
+    position += direction;
+    if (position < 0) position = maxPosition;
+    if (position > maxPosition) position = 0;
+    const shift = (100 / slidesPerView) * position;
+    track.style.transform = `translateX(-${shift}%)`;
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
-  }
-  slides[slideIndex-1].classList.add("active");  
-  dots[slideIndex-1].classList.add("active");
-}
 </script>
